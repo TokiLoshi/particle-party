@@ -77,7 +77,7 @@ export default function Experience() {
 	useEffect(() => {
 		const handlePointerMove = (event) => {
 			screenCursor.current.x = (event.clientX / sizes.width) * 2 - 1;
-			screenCursor.current.y = (event.clientY / sizes.height) * 2 + 1;
+			screenCursor.current.y = -(event.clientY / sizes.height) * 2 + 1;
 		};
 		window.addEventListener("pointermove", handlePointerMove);
 		return () => window.removeEventListener("pointermove", handlePointerMove);
