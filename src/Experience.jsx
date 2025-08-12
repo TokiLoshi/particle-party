@@ -108,6 +108,7 @@ export default function Experience() {
 
 	const uniforms = useMemo(() => {
 		if (!displacementTextureRef.current) return null;
+
 		return {
 			uResolution: new THREE.Uniform(
 				new THREE.Vector2(
@@ -171,6 +172,8 @@ export default function Experience() {
 
 		// Update displacement texture
 		displacementTextureRef.current.needsUpdate = true;
+		particlesMaterialRef.current.uniforms.uDisplacementTexture.value =
+			displacementTextureRef.current;
 
 		// update uniform on material
 		if (particlesMaterialRef.current) {
@@ -180,6 +183,8 @@ export default function Experience() {
 			);
 		}
 	});
+
+	if (!uniforms) return null;
 
 	return (
 		<>
