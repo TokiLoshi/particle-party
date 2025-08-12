@@ -7,10 +7,12 @@ import fragmentShader from "./shaders/particles/fragment.glsl";
 
 export default function Experience() {
 	// Load texture
-	const [pictureTexture, glowTexture] = useTexture([
+	const [pictureTexture, glowTexture, birbColor] = useTexture([
 		"./pictures/picture-1.png",
 		"./pictures/glow.png",
+		"./pictures/logo.png",
 	]);
+	console.log("Picture texture: ", pictureTexture);
 	// camera and size
 	const { camera, size } = useThree();
 
@@ -116,10 +118,10 @@ export default function Experience() {
 					sizes.height * sizes.pixelRatio
 				)
 			),
-			uPictureTexture: new THREE.Uniform(pictureTexture),
+			uPictureTexture: new THREE.Uniform(birbColor),
 			uDisplacementTexture: new THREE.Uniform(displacementTextureRef.current),
 		};
-	}, [pictureTexture, sizes]);
+	}, [birbColor, sizes]);
 
 	// Animation Ref
 	useFrame(() => {

@@ -17,7 +17,7 @@ function App() {
 				}}
 				style={{
 					background:
-						"linear-gradient( 180deg, #1a1a2e 0%, #16213e 15%, #0f3460 20%, #533a71 55%, #7c2d12 100%",
+						"linear-gradient( 180deg, #1a1a2e 0%, #16213e 15%, #0f3460 20%, #533a71 55%, #35150aff 100%",
 				}}
 				gl={{
 					tonemapping: ACESFilmicToneMapping,
