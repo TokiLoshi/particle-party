@@ -8,3 +8,4 @@ Adapting Bruno Simon's Particles cursor animation shader to react
 - Wrap it in Tanstack with some kind of auth / hidden page
 - Hook it up to Upload thing to upload different pictures
 - Try out different particles.
+- Try out different glow.
