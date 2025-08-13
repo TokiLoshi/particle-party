@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef, useMemo, useState } from "react";
 import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useTexture } from "@react-three/drei";
@@ -15,6 +15,9 @@ export default function Experience() {
 	console.log("Picture texture: ", pictureTexture);
 	// camera and size
 	const { camera, size } = useThree();
+
+	// Kicking the texture to update with state
+	const [displacementReady, setDisplacementReady] = useState(false);
 
 	// Refs
 	const canvasRef = useRef();
@@ -62,6 +65,7 @@ export default function Experience() {
 		// Canvas Texture
 		const displacementTexture = new THREE.CanvasTexture(canvas);
 		displacementTextureRef.current = displacementTexture;
+		setDisplacementReady(true);
 
 		const img = new Image();
 		img.crossOrigin = "anonymous";
@@ -125,7 +129,7 @@ export default function Experience() {
 			uPictureTexture: new THREE.Uniform(birbColor),
 			uDisplacementTexture: new THREE.Uniform(displacementTextureRef.current),
 		};
-	}, [birbColor, sizes]);
+	}, [birbColor, sizes, displacementReady]);
 
 	// Animation Ref
 	useFrame(() => {
