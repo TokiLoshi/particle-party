@@ -15,9 +15,10 @@ function App() {
 					fov: 35,
 					position: [0, 0, 18],
 				}}
+				// https://uigradients.com/#KyooTah
 				style={{
 					background:
-						"linear-gradient( 180deg, #1a1a2e 0%, #16213e 15%, #0f3460 20%, #533a71 55%, #35150aff 100%",
+						"linear-gradient( 180deg, #1a1a2e 0%, #16213e 15%, #0f3460 20%, #a39e5aff 55%, #ada317ff 100%",
 				}}
 				gl={{
 					tonemapping: ACESFilmicToneMapping,
