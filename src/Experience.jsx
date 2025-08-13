@@ -40,6 +40,7 @@ export default function Experience() {
 	);
 
 	useEffect(() => {
+		// 2D canvas on top left
 		const canvas = document.createElement("canvas");
 		canvas.width = 128;
 		canvas.height = 128;
@@ -58,6 +59,7 @@ export default function Experience() {
 		// Fill with black
 		context.fillRect(0, 0, canvas.width, canvas.height);
 
+		// Canvas Texture
 		const displacementTexture = new THREE.CanvasTexture(canvas);
 		displacementTextureRef.current = displacementTexture;
 
@@ -85,6 +87,7 @@ export default function Experience() {
 		return () => window.removeEventListener("pointermove", handlePointerMove);
 	}, [sizes]);
 
+	// Chaos particles and randomness
 	const particlesGeometry = useMemo(() => {
 		const geometry = new THREE.PlaneGeometry(10, 10, 128, 128);
 		geometry.setIndex(null);
@@ -108,6 +111,7 @@ export default function Experience() {
 		return geometry;
 	}, []);
 
+	// Uniforms to throw around in the vertex shader
 	const uniforms = useMemo(() => {
 		if (!displacementTextureRef.current) return null;
 
